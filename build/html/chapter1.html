@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Getting started &#8212; learn-sphinx 1.0.0rc1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Sphinx extensions for embedded plots, math and more" href="chapter2.html" />
+    <link rel="prev" title="Welcome to learn-sphinx’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="getting-started">
+<span id="id1"></span><h1><span class="section-number">1. </span>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<section id="installing-your-doc-directory">
+<span id="installing-docdir"></span><h2><span class="section-number">1.1. </span>Installing your doc directory<a class="headerlink" href="#installing-your-doc-directory" title="Permalink to this headline">¶</a></h2>
+<p>You may already have sphinx <a class="reference external" href="http://sphinx.pocoo.org/">sphinx</a>
+installed – you can check by doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;import sphinx&#39;</span>
+</pre></div>
+</div>
+<p>If that fails grab the latest version of and install it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sudo</span> <span class="n">easy_install</span> <span class="o">-</span><span class="n">U</span> <span class="n">Sphinx</span>
+</pre></div>
+</div>
+<p>Now you are ready to build a template for your docs, using
+sphinx-quickstart:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">quickstart</span>
+</pre></div>
+</div>
+<p>accepting most of the defaults.  I choose “sampledoc” as the name of my
+project.  cd into your new directory and check the contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">home</span><span class="p">:</span><span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sampledoc</span><span class="o">&gt;</span> <span class="n">ls</span>
+<span class="n">Makefile</span>      <span class="n">_static</span>         <span class="n">conf</span><span class="o">.</span><span class="n">py</span>
+<span class="n">build</span>         <span class="n">_templates</span>      <span class="n">index</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<p>The index.rst is the master ReST for your project, but before adding
+anything, let’s see if we can build some html:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>If you now point your browser to <code class="file docutils literal notranslate"><span class="pre">build/html/index.html</span></code>, you
+should see a basic sphinx site.</p>
+<img alt="_images/basic_screenshot.png" src="_images/basic_screenshot.png" />
+<section id="fetching-the-data">
+<span id="id2"></span><h3><span class="section-number">1.1.1. </span>Fetching the data<a class="headerlink" href="#fetching-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Now we will start to customize out docs.  Grab a couple of files from
+the <a class="reference external" href="https://github.com/matplotlib/sampledoc">web site</a>
+or git.  You will need <code class="file docutils literal notranslate"><span class="pre">getting_started.rst</span></code> and
+<code class="file docutils literal notranslate"><span class="pre">images/basic_screenshot.png</span></code>.  All of the files live in the
+“completed” version of this tutorial, but since this is a tutorial,
+we’ll just grab them one at a time, so you can learn what needs to be
+changed where.  Since we have more files to come, I’m going to grab
+the whole git directory and just copy the files I need over for now.
+First, I’ll cd up back into the directory containing my project, check
+out the “finished” product from git, and then copy in just the files I
+need into my <code class="file docutils literal notranslate"><span class="pre">sampledoc</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">home</span><span class="p">:</span><span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sampledoc</span><span class="o">&gt;</span> <span class="n">pwd</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">jdhunter</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sampledoc</span>
+<span class="n">home</span><span class="p">:</span><span class="o">~/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sampledoc</span><span class="o">&gt;</span> <span class="n">cd</span> <span class="o">..</span>
+<span class="n">home</span><span class="p">:</span><span class="o">~/</span><span class="n">tmp</span><span class="o">&gt;</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">sampledoc</span><span class="o">.</span><span class="n">git</span> <span class="n">tutorial</span>
+<span class="n">Cloning</span> <span class="n">into</span> <span class="s1">&#39;tutorial&#39;</span><span class="o">...</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Counting</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span> <span class="n">done</span><span class="o">.</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Compressing</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">43</span><span class="o">/</span><span class="mi">43</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+<span class="n">remote</span><span class="p">:</span> <span class="n">Total</span> <span class="mi">87</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">45</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">83</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">41</span><span class="p">)</span>
+<span class="n">Unpacking</span> <span class="n">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">87</span><span class="o">/</span><span class="mi">87</span><span class="p">),</span> <span class="n">done</span><span class="o">.</span>
+<span class="n">Checking</span> <span class="n">connectivity</span><span class="o">...</span> <span class="n">done</span>
+<span class="n">home</span><span class="p">:</span><span class="o">~/</span><span class="n">tmp</span><span class="o">&gt;</span> <span class="n">cp</span> <span class="n">tutorial</span><span class="o">/</span><span class="n">getting_started</span><span class="o">.</span><span class="n">rst</span> <span class="n">sampledoc</span><span class="o">/</span>
+<span class="n">home</span><span class="p">:</span><span class="o">~/</span><span class="n">tmp</span><span class="o">&gt;</span> <span class="n">cp</span> <span class="n">tutorial</span><span class="o">/</span><span class="n">_static</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">basic_screenshot</span><span class="o">.</span><span class="n">png</span> <span class="n">sampledoc</span><span class="o">/</span><span class="n">_static</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>The last step is to modify <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> to include the
+<code class="file docutils literal notranslate"><span class="pre">getting_started.rst</span></code> file (be careful with the indentation, the
+“g” in “getting_started” should line up with the ‘:’ in <code class="docutils literal notranslate"><span class="pre">:maxdepth</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contents</span><span class="p">:</span>
+
+<span class="o">..</span> <span class="n">toctree</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">maxdepth</span><span class="p">:</span> <span class="mi">2</span>
+
+   <span class="n">getting_started</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<p>and then rebuild the docs:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">sampledoc</span>
+<span class="n">make</span> <span class="n">html</span>
+</pre></div>
+</div>
+<p>When you reload the page by refreshing your browser pointing to
+<code class="file docutils literal notranslate"><span class="pre">build/html/index.html</span></code>, you should see a link to the
+“Getting Started” docs, and in there this page with the screenshot.
+<cite>Voila!</cite></p>
+<p>We can also use the image directive in <code class="file docutils literal notranslate"><span class="pre">index.rst</span></code> to include to the screenshot above
+with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">image</span><span class="p">::</span>
+   <span class="n">images</span><span class="o">/</span><span class="n">basic_screenshot</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>Next we’ll customize the look and feel of our site to give it a logo,
+some custom css, and update the navigation panels to look more like
+the <a class="reference external" href="http://sphinx.pocoo.org/">sphinx</a> site itself – see
+<span class="xref std std-ref">custom_look</span>.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">learn-sphinx</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installing-your-doc-directory">1.1. Installing your doc directory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chapter2.html">2. Sphinx extensions for embedded plots, math and more</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html">3. Markdown Cheatsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter3.html#heading-1">4. Heading 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst-text.html">5. 一级标题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rst-text.html#restructturedtext">6. reStructturedText 语法学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dock-like-code.html">7. Dock like code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Dock-like-code.html#id1">8. 1.Dock like code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Apifox.html">9. Apifox</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to learn-sphinx’s documentation!</a></li>
+      <li>Next: <a href="chapter2.html" title="next chapter"><span class="section-number">2. </span>Sphinx extensions for embedded plots, math and more</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, gzh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/chapter1.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

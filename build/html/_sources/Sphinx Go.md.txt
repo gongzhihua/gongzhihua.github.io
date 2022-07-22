@@ -1,0 +1,21 @@
+Dock like code
+===================
+
+# 1.Dock like code 
+
+## 1.1 What Dock like code 
+
+Docs Like Code 不是一个工具，而是一种理念。这种理念决定了一套写文档的完整流程和工具链，即：写文档与写代码的流程和工具链保持一致。
+
+## 1.2 Why Dock like code 
+
+据 Stack Overflow（著名开发者问答社区）2016 年的调查 [2] 显示，文档质量差是软件工程师们在工作中最常抱怨的三大问题之一。**文档不完整、文档找不到、文档过时**逐渐成为软件工程师们面临的“三堵高墙”。
+
+**文档必须紧跟代码，迅速迭代优化**
+## 1.3 Docs Like Code 运动
+
+Write the Docs 2014 会议 [3] 上，来自 Twitter 的 Simeon Franklin 和 Marko Gargenta 做了 Docs Like Code 的实践分享，台下来自 Google 的 Riona MacNamara 备受鼓舞。
+次年 Write the Docs 会议 [4] 上，Riona 分享了在 Google 进行 Docs Like Code 实践的成功经验。
+
+Docs Like Code 慢慢成为了 Google 司软件文档开发的一项事实标准。
+
